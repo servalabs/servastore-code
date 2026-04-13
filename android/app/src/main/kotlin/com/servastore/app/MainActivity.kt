@@ -1,4 +1,4 @@
-package dev.imranr.obtainium
+package com.servastore.app
 
 import io.flutter.embedding.android.FlutterActivity
 

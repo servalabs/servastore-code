@@ -29,7 +29,7 @@ if (keystorePropertiesExists) {
 }
 
 android {
-    namespace = "dev.imranr.obtainium"
+    namespace = "com.servastore.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "28.2.13676358"
 
@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "dev.imranr.obtainium"
+        applicationId = "com.servastore.app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 26
@@ -107,8 +107,9 @@ android {
             }
         }
         getByName("debug") {
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
+            // Remove suffixes to keep ID and Name clean for local testing
+            applicationIdSuffix = ""
+            versionNameSuffix = ""
         }
     }
 }

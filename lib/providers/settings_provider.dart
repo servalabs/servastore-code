@@ -5,17 +5,17 @@ import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:obtainium/app_sources/github.dart';
-import 'package:obtainium/main.dart';
-import 'package:obtainium/providers/apps_provider.dart';
-import 'package:obtainium/providers/source_provider.dart';
+import 'package:servastore/app_sources/github.dart';
+import 'package:servastore/main.dart';
+import 'package:servastore/providers/apps_provider.dart';
+import 'package:servastore/providers/source_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_storage/shared_storage.dart' as saf;
 
-String obtainiumTempId = 'imranr98_obtainium_${GitHub().hosts[0]}';
-String obtainiumId = 'dev.imranr.obtainium';
-String obtainiumUrl = 'https://github.com/ImranR98/Obtainium';
+String obtainiumTempId = 'servastore_${GitHub().hosts[0]}';
+String obtainiumId = 'com.servastore.app';
+String obtainiumUrl = 'https://github.com/ServaStore/ServaStore';
 Color obtainiumThemeColor = const Color(0xFF6438B5);
 
 enum ThemeSettings { system, light, dark }
@@ -29,7 +29,7 @@ class SettingsProvider with ChangeNotifier {
   String? defaultAppDir;
   bool justStarted = true;
 
-  String sourceUrl = 'https://github.com/ImranR98/Obtainium';
+  String sourceUrl = 'https://github.com/ServaStore/ServaStore';
 
   // Not done in constructor as we want to be able to await it
   Future<void> initializeSettings() async {

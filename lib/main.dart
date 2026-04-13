@@ -2,13 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:obtainium/pages/home.dart';
-import 'package:obtainium/providers/apps_provider.dart';
-import 'package:obtainium/providers/logs_provider.dart';
-import 'package:obtainium/providers/native_provider.dart';
-import 'package:obtainium/providers/notifications_provider.dart';
-import 'package:obtainium/providers/settings_provider.dart';
-import 'package:obtainium/providers/source_provider.dart';
+import 'package:servastore/pages/home.dart';
+import 'package:servastore/providers/apps_provider.dart';
+import 'package:servastore/providers/logs_provider.dart';
+import 'package:servastore/providers/native_provider.dart';
+import 'package:servastore/providers/notifications_provider.dart';
+import 'package:servastore/providers/settings_provider.dart';
+import 'package:servastore/providers/source_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -163,21 +163,21 @@ void main() async {
         path: localeDir,
         fallbackLocale: fallbackLocale,
         useOnlyLangCode: false,
-        child: const Obtainium(),
+        child: const ServaStore(),
       ),
     ),
   );
   BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
 }
 
-class Obtainium extends StatefulWidget {
-  const Obtainium({super.key});
+class ServaStore extends StatefulWidget {
+  const ServaStore({super.key});
 
   @override
-  State<Obtainium> createState() => _ObtainiumState();
+  State<ServaStore> createState() => _ServaStoreState();
 }
 
-class _ObtainiumState extends State<Obtainium> {
+class _ServaStoreState extends State<ServaStore> {
   var existingUpdateInterval = -1;
 
   @override
@@ -311,8 +311,8 @@ class _ObtainiumState extends State<Obtainium> {
     } else {
       bool isFirstRun = settingsProvider.checkAndFlipFirstRun();
       if (isFirstRun) {
-        logs.add('This is the first ever run of Obtainium.');
-        // If this is the first run, add Obtainium to the Apps list
+        logs.add('This is the first ever run of Serva Store.');
+        // If this is the first run, add Serva Store to the Apps list
         if (!fdroid) {
           getInstalledInfo(obtainiumId)
               .then((value) {
@@ -321,8 +321,8 @@ class _ObtainiumState extends State<Obtainium> {
                     App(
                       obtainiumId,
                       obtainiumUrl,
-                      'ImranR98',
-                      'Obtainium',
+                      'Serva Store',
+                      'Serva Store',
                       value!.versionName,
                       value.versionName!,
                       [],
@@ -385,7 +385,7 @@ class _ObtainiumState extends State<Obtainium> {
           if (settingsProvider.useSystemFont) NativeFeatures.loadSystemFont();
 
           return MaterialApp(
-            title: 'Obtainium',
+            title: 'Serva Store',
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
